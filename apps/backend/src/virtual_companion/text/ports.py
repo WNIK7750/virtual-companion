@@ -1,0 +1,39 @@
+from __future__ import annotations
+
+from collections.abc import Iterator
+from threading import Event
+from typing import Protocol
+
+
+class TextGenerationPort(Protocol):
+    def stream(self, messages: list[dict], cancelled: Event) -> Iterator[str]: ...
+
+    def cancel(self) -> None: ...
+
+
+class PreparedTextRequest(Protocol):
+    """One bound request, not a presentation approval or source waiver."""
+
+    def check_context(self) -> object: ...
+
+    def stream(self, cancelled: Event) -> Iterator[str]: ...
+
+
+class ConversationStore(Protocol):
+    session_id: str
+
+    def history(self) -> dict: ...
+
+    def history_page(self, *, before=None, after=None, session_id=None) -> dict: ...
+
+    def begin(self, text: str | None, binding: dict, *, retry: bool = False) -> dict: ...
+
+    def begin_queued(self, turn_id: str) -> dict: ...
+
+    def finish(self, attempt_id: str, status: str, content: str) -> None: ...
+
+    def latest_attempt(self) -> dict | None: ...
+
+    def new_session(self) -> dict: ...
+
+    def select_session(self, session_id: str) -> dict: ...

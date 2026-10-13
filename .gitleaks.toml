@@ -1,0 +1,27 @@
+title = "Virtual Companion secret scanning"
+
+[extend]
+useDefault = true
+
+# Keep all default detectors. Each exception requires both an exact source path
+# and the reviewed public hash or synthetic reference; never exclude tests.
+[[rules]]
+id = "generic-api-key"
+
+[[rules.allowlists]]
+description = "Pinned upstream pi-web-access revision in attribution"
+condition = "AND"
+paths = ['''^apps/backend/src/virtual_companion/providers/pi_web_fetch\.py$''']
+regexes = ['''^8e812826269624406458531f9231b679547f5a3a$''']
+
+[[rules.allowlists]]
+description = "Integrity checksum of the external tokenizer artifact"
+condition = "AND"
+paths = ['''^apps/backend/src/virtual_companion/text/provider_counter\.py$''']
+regexes = ['''^81f64d1248a68ce3663e07ab3ee48b851e5df0e32d27cb98e4c9a268151e8d99$''']
+
+[[rules.allowlists]]
+description = "Synthetic DPAPI reference IDs in three offline fixtures"
+condition = "AND"
+paths = ['''^tests/r1/(test_deepseek_provider|test_model_provider_contract|test_provider_loopback)\.py$''']
+regexes = ['''^0123456789abcdef0123456789abcdef$''']

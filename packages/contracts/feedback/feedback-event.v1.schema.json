@@ -1,0 +1,212 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://virtual-companion.local/contracts/feedback-event.v1.schema.json",
+  "title": "FeedbackEvent v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "feedback_id",
+    "session_id",
+    "turn_id",
+    "assistant_message_id",
+    "quick_tags",
+    "freeform_reaction",
+    "feedback_revision",
+    "supersedes_revision",
+    "status",
+    "created_at",
+    "version_binding"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "feedback_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "session_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "turn_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "assistant_message_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "quick_tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "maxItems": 16
+    },
+    "freeform_reaction": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 2000
+    },
+    "feedback_revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "supersedes_revision": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 1
+    },
+    "status": {
+      "enum": [
+        "active",
+        "withdrawn"
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "version_binding": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "app_commit",
+            "schema_version",
+            "persona_sha256",
+            "prompt_sha256",
+            "model_sha256",
+            "server_sha256",
+            "sampling_profile_id"
+          ],
+          "properties": {
+            "app_commit": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{40}$"
+            },
+            "schema_version": {
+              "const": 1
+            },
+            "persona_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "prompt_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "model_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "server_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "sampling_profile_id": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "app_commit",
+            "schema_version",
+            "persona_sha256",
+            "prompt_sha256",
+            "model_sha256",
+            "server_sha256",
+            "sampling_profile_id",
+            "provider_route",
+            "provider_config",
+            "provider_revision",
+            "provider_model",
+            "provider_wire_profile"
+          ],
+          "properties": {
+            "app_commit": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{40}$"
+            },
+            "schema_version": {
+              "const": 2
+            },
+            "persona_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "prompt_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "model_sha256": {
+              "type": "null"
+            },
+            "server_sha256": {
+              "type": "null"
+            },
+            "sampling_profile_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "provider_route": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "provider_config": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "provider_revision": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "provider_model": {
+              "type": "string",
+              "minLength": 1
+            },
+            "provider_wire_profile": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      ]
+    }
+  },
+  "anyOf": [
+    {
+      "required": [
+        "quick_tags"
+      ],
+      "properties": {
+        "quick_tags": {
+          "minItems": 1
+        }
+      }
+    },
+    {
+      "required": [
+        "freeform_reaction"
+      ],
+      "properties": {
+        "freeform_reaction": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  ]
+}

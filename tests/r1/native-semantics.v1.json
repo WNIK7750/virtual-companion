@@ -1,0 +1,806 @@
+[
+  {
+    "text": "你好",
+    "visible": false,
+    "analysis": {
+      "user_act": "greeting",
+      "semantic_target": "普通招呼",
+      "requires_direct_answer": false,
+      "inherited_from_previous": false,
+      "repetition_count": 0,
+      "extracted_user_name": null
+    },
+    "frame": {
+      "user_acts": [
+        "greeting"
+      ],
+      "literal_target": "普通招呼",
+      "topic_entities": [],
+      "discourse_relation": "shift",
+      "temporal_refs": [],
+      "unresolved_refs": [],
+      "completeness": 1.0,
+      "likely_follow_up": 0.15,
+      "memory_query_hints": [],
+      "must_answer": false
+    },
+    "decision": {
+      "action": "respond_now",
+      "floor_action": "take",
+      "move": "acknowledge",
+      "obligation_ids": [
+        "92d1b9808dcf499a8bef6e1b495750e0"
+      ],
+      "curiosity_id": null,
+      "listening_mode": null,
+      "reason_codes": [
+        "required:opening_return"
+      ],
+      "motive": "当前输入产生了必须履行的回应义务",
+      "recheck_policy": null
+    }
+  },
+  {
+    "text": "你好",
+    "visible": true,
+    "analysis": {
+      "user_act": "greeting",
+      "semantic_target": "普通招呼",
+      "requires_direct_answer": false,
+      "inherited_from_previous": false,
+      "repetition_count": 0,
+      "extracted_user_name": null
+    },
+    "frame": {
+      "user_acts": [
+        "greeting"
+      ],
+      "literal_target": "普通招呼",
+      "topic_entities": [],
+      "discourse_relation": "shift",
+      "temporal_refs": [],
+      "unresolved_refs": [],
+      "completeness": 1.0,
+      "likely_follow_up": 0.15,
+      "memory_query_hints": [],
+      "must_answer": false
+    },
+    "decision": {
+      "action": "respond_now",
+      "floor_action": "take",
+      "move": "attitude",
+      "obligation_ids": [],
+      "curiosity_id": null,
+      "listening_mode": null,
+      "reason_codes": [
+        "optional:character_stance"
+      ],
+      "motive": "输入已经形成可回应的完整表达",
+      "recheck_policy": null
+    }
+  },
+  {
+    "text": "你是谁？",
+    "visible": false,
+    "analysis": {
+      "user_act": "identity_probe",
+      "semantic_target": "小静是谁",
+      "requires_direct_answer": true,
+      "inherited_from_previous": false,
+      "repetition_count": 0,
+      "extracted_user_name": null
+    },
+    "frame": {
+      "user_acts": [
+        "identity_probe"
+      ],
+      "literal_target": "小静是谁",
+      "topic_entities": [],
+      "discourse_relation": "shift",
+      "temporal_refs": [],
+      "unresolved_refs": [],
+      "completeness": 1.0,
+      "likely_follow_up": 0.15,
+      "memory_query_hints": [],
+      "must_answer": true
+    },
+    "decision": {
+      "action": "respond_now",
+      "floor_action": "take",
+      "move": "acknowledge",
+      "obligation_ids": [
+        "cc7893128e624f35bce52be2599d0300",
+        "712cc4d279584f1ba2ea6f1d5b121460"
+      ],
+      "curiosity_id": null,
+      "listening_mode": null,
+      "reason_codes": [
+        "required:opening_return",
+        "required:answer_question"
+      ],
+      "motive": "当前输入产生了必须履行的回应义务",
+      "recheck_policy": null
+    }
+  },
+  {
+    "text": "你是谁？",
+    "visible": true,
+    "analysis": {
+      "user_act": "identity_probe",
+      "semantic_target": "小静是谁",
+      "requires_direct_answer": true,
+      "inherited_from_previous": false,
+      "repetition_count": 0,
+      "extracted_user_name": null
+    },
+    "frame": {
+      "user_acts": [
+        "identity_probe"
+      ],
+      "literal_target": "小静是谁",
+      "topic_entities": [],
+      "discourse_relation": "shift",
+      "temporal_refs": [],
+      "unresolved_refs": [],
+      "completeness": 1.0,
+      "likely_follow_up": 0.15,
+      "memory_query_hints": [],
+      "must_answer": true
+    },
+    "decision": {
+      "action": "respond_now",
+      "floor_action": "take",
+      "move": "answer",
+      "obligation_ids": [
+        "d2dc818a609541209135020396b7ca47"
+      ],
+      "curiosity_id": null,
+      "listening_mode": null,
+      "reason_codes": [
+        "required:answer_question"
+      ],
+      "motive": "当前输入产生了必须履行的回应义务",
+      "recheck_policy": null
+    }
+  },
+  {
+    "text": "先别说话",
+    "visible": false,
+    "analysis": {
+      "user_act": "share",
+      "semantic_target": "先别说话",
+      "requires_direct_answer": false,
+      "inherited_from_previous": false,
+      "repetition_count": 0,
+      "extracted_user_name": null
+    },
+    "frame": {
+      "user_acts": [
+        "share"
+      ],
+      "literal_target": "先别说话",
+      "topic_entities": [],
+      "discourse_relation": "shift",
+      "temporal_refs": [],
+      "unresolved_refs": [],
+      "completeness": 1.0,
+      "likely_follow_up": 0.15,
+      "memory_query_hints": [],
+      "must_answer": false
+    },
+    "decision": {
+      "action": "respect_silence",
+      "floor_action": "yield",
+      "move": "acknowledge",
+      "obligation_ids": [],
+      "curiosity_id": null,
+      "listening_mode": "respecting_no_reply",
+      "reason_codes": [
+        "explicit_no_reply"
+      ],
+      "motive": "用户明确表示现在不需要回复",
+      "recheck_policy": null
+    }
+  },
+  {
+    "text": "先别说话",
+    "visible": true,
+    "analysis": {
+      "user_act": "share",
+      "semantic_target": "先别说话",
+      "requires_direct_answer": false,
+      "inherited_from_previous": false,
+      "repetition_count": 0,
+      "extracted_user_name": null
+    },
+    "frame": {
+      "user_acts": [
+        "share"
+      ],
+      "literal_target": "先别说话",
+      "topic_entities": [],
+      "discourse_relation": "shift",
+      "temporal_refs": [],
+      "unresolved_refs": [],
+      "completeness": 1.0,
+      "likely_follow_up": 0.15,
+      "memory_query_hints": [],
+      "must_answer": false
+    },
+    "decision": {
+      "action": "respect_silence",
+      "floor_action": "yield",
+      "move": "acknowledge",
+      "obligation_ids": [],
+      "curiosity_id": null,
+      "listening_mode": "respecting_no_reply",
+      "reason_codes": [
+        "explicit_no_reply"
+      ],
+      "motive": "用户明确表示现在不需要回复",
+      "recheck_policy": null
+    }
+  },
+  {
+    "text": "我还没说完",
+    "visible": false,
+    "analysis": {
+      "user_act": "share",
+      "semantic_target": "我还没说完",
+      "requires_direct_answer": false,
+      "inherited_from_previous": false,
+      "repetition_count": 0,
+      "extracted_user_name": null
+    },
+    "frame": {
+      "user_acts": [
+        "share"
+      ],
+      "literal_target": "我还没说完",
+      "topic_entities": [],
+      "discourse_relation": "shift",
+      "temporal_refs": [],
+      "unresolved_refs": [],
+      "completeness": 1.0,
+      "likely_follow_up": 0.15,
+      "memory_query_hints": [],
+      "must_answer": false
+    },
+    "decision": {
+      "action": "respond_now",
+      "floor_action": "take",
+      "move": "acknowledge",
+      "obligation_ids": [
+        "9c17bafe4b054cc384a5c4f43e901b87"
+      ],
+      "curiosity_id": null,
+      "listening_mode": null,
+      "reason_codes": [
+        "required:opening_return"
+      ],
+      "motive": "当前输入产生了必须履行的回应义务",
+      "recheck_policy": null
+    }
+  },
+  {
+    "text": "我还没说完",
+    "visible": true,
+    "analysis": {
+      "user_act": "share",
+      "semantic_target": "我还没说完",
+      "requires_direct_answer": false,
+      "inherited_from_previous": false,
+      "repetition_count": 0,
+      "extracted_user_name": null
+    },
+    "frame": {
+      "user_acts": [
+        "share"
+      ],
+      "literal_target": "我还没说完",
+      "topic_entities": [],
+      "discourse_relation": "shift",
+      "temporal_refs": [],
+      "unresolved_refs": [],
+      "completeness": 1.0,
+      "likely_follow_up": 0.15,
+      "memory_query_hints": [],
+      "must_answer": false
+    },
+    "decision": {
+      "action": "respond_now",
+      "floor_action": "take",
+      "move": "attitude",
+      "obligation_ids": [],
+      "curiosity_id": null,
+      "listening_mode": null,
+      "reason_codes": [
+        "optional:character_stance"
+      ],
+      "motive": "输入已经形成可回应的完整表达",
+      "recheck_policy": null
+    }
+  },
+  {
+    "text": "我明天去北京",
+    "visible": false,
+    "analysis": {
+      "user_act": "share",
+      "semantic_target": "我明天去北京",
+      "requires_direct_answer": false,
+      "inherited_from_previous": false,
+      "repetition_count": 0,
+      "extracted_user_name": null
+    },
+    "frame": {
+      "user_acts": [
+        "share"
+      ],
+      "literal_target": "我明天去北京",
+      "topic_entities": [],
+      "discourse_relation": "shift",
+      "temporal_refs": [],
+      "unresolved_refs": [],
+      "completeness": 1.0,
+      "likely_follow_up": 0.15,
+      "memory_query_hints": [],
+      "must_answer": false
+    },
+    "decision": {
+      "action": "respond_now",
+      "floor_action": "take",
+      "move": "acknowledge",
+      "obligation_ids": [
+        "f6ef9f3d1ff443b380f0d621a8746670"
+      ],
+      "curiosity_id": null,
+      "listening_mode": null,
+      "reason_codes": [
+        "required:opening_return"
+      ],
+      "motive": "当前输入产生了必须履行的回应义务",
+      "recheck_policy": null
+    }
+  },
+  {
+    "text": "我明天去北京",
+    "visible": true,
+    "analysis": {
+      "user_act": "share",
+      "semantic_target": "我明天去北京",
+      "requires_direct_answer": false,
+      "inherited_from_previous": false,
+      "repetition_count": 0,
+      "extracted_user_name": null
+    },
+    "frame": {
+      "user_acts": [
+        "share"
+      ],
+      "literal_target": "我明天去北京",
+      "topic_entities": [],
+      "discourse_relation": "shift",
+      "temporal_refs": [],
+      "unresolved_refs": [],
+      "completeness": 1.0,
+      "likely_follow_up": 0.15,
+      "memory_query_hints": [],
+      "must_answer": false
+    },
+    "decision": {
+      "action": "respond_now",
+      "floor_action": "take",
+      "move": "attitude",
+      "obligation_ids": [],
+      "curiosity_id": null,
+      "listening_mode": null,
+      "reason_codes": [
+        "optional:character_stance"
+      ],
+      "motive": "输入已经形成可回应的完整表达",
+      "recheck_policy": null
+    }
+  },
+  {
+    "text": "你愿意听我说吗？",
+    "visible": false,
+    "analysis": {
+      "user_act": "question",
+      "semantic_target": "你愿意听我说吗？",
+      "requires_direct_answer": true,
+      "inherited_from_previous": false,
+      "repetition_count": 0,
+      "extracted_user_name": null
+    },
+    "frame": {
+      "user_acts": [
+        "question"
+      ],
+      "literal_target": "你愿意听我说吗？",
+      "topic_entities": [],
+      "discourse_relation": "shift",
+      "temporal_refs": [],
+      "unresolved_refs": [],
+      "completeness": 1.0,
+      "likely_follow_up": 0.15,
+      "memory_query_hints": [],
+      "must_answer": true
+    },
+    "decision": {
+      "action": "respond_now",
+      "floor_action": "take",
+      "move": "acknowledge",
+      "obligation_ids": [
+        "178ecf0868534dc2b0baa263f752cf31",
+        "e904e4402327441fa35c795553e05be8"
+      ],
+      "curiosity_id": null,
+      "listening_mode": null,
+      "reason_codes": [
+        "required:opening_return",
+        "required:answer_question"
+      ],
+      "motive": "当前输入产生了必须履行的回应义务",
+      "recheck_policy": null
+    }
+  },
+  {
+    "text": "你愿意听我说吗？",
+    "visible": true,
+    "analysis": {
+      "user_act": "question",
+      "semantic_target": "你愿意听我说吗？",
+      "requires_direct_answer": true,
+      "inherited_from_previous": false,
+      "repetition_count": 0,
+      "extracted_user_name": null
+    },
+    "frame": {
+      "user_acts": [
+        "question"
+      ],
+      "literal_target": "你愿意听我说吗？",
+      "topic_entities": [],
+      "discourse_relation": "shift",
+      "temporal_refs": [],
+      "unresolved_refs": [],
+      "completeness": 1.0,
+      "likely_follow_up": 0.15,
+      "memory_query_hints": [],
+      "must_answer": true
+    },
+    "decision": {
+      "action": "respond_now",
+      "floor_action": "take",
+      "move": "answer",
+      "obligation_ids": [
+        "96991f672dcd4acaa7f626ae54d7827e"
+      ],
+      "curiosity_id": null,
+      "listening_mode": null,
+      "reason_codes": [
+        "required:answer_question"
+      ],
+      "motive": "当前输入产生了必须履行的回应义务",
+      "recheck_policy": null
+    }
+  },
+  {
+    "text": "算了，不用回答",
+    "visible": false,
+    "analysis": {
+      "user_act": "share",
+      "semantic_target": "算了，不用回答",
+      "requires_direct_answer": false,
+      "inherited_from_previous": false,
+      "repetition_count": 0,
+      "extracted_user_name": null
+    },
+    "frame": {
+      "user_acts": [
+        "share"
+      ],
+      "literal_target": "算了，不用回答",
+      "topic_entities": [],
+      "discourse_relation": "shift",
+      "temporal_refs": [],
+      "unresolved_refs": [],
+      "completeness": 1.0,
+      "likely_follow_up": 0.15,
+      "memory_query_hints": [],
+      "must_answer": false
+    },
+    "decision": {
+      "action": "respect_silence",
+      "floor_action": "yield",
+      "move": "acknowledge",
+      "obligation_ids": [],
+      "curiosity_id": null,
+      "listening_mode": "respecting_no_reply",
+      "reason_codes": [
+        "explicit_no_reply"
+      ],
+      "motive": "用户明确表示现在不需要回复",
+      "recheck_policy": null
+    }
+  },
+  {
+    "text": "算了，不用回答",
+    "visible": true,
+    "analysis": {
+      "user_act": "share",
+      "semantic_target": "算了，不用回答",
+      "requires_direct_answer": false,
+      "inherited_from_previous": false,
+      "repetition_count": 0,
+      "extracted_user_name": null
+    },
+    "frame": {
+      "user_acts": [
+        "share"
+      ],
+      "literal_target": "算了，不用回答",
+      "topic_entities": [],
+      "discourse_relation": "shift",
+      "temporal_refs": [],
+      "unresolved_refs": [],
+      "completeness": 1.0,
+      "likely_follow_up": 0.15,
+      "memory_query_hints": [],
+      "must_answer": false
+    },
+    "decision": {
+      "action": "respect_silence",
+      "floor_action": "yield",
+      "move": "acknowledge",
+      "obligation_ids": [],
+      "curiosity_id": null,
+      "listening_mode": "respecting_no_reply",
+      "reason_codes": [
+        "explicit_no_reply"
+      ],
+      "motive": "用户明确表示现在不需要回复",
+      "recheck_policy": null
+    }
+  },
+  {
+    "text": "我今天很难过",
+    "visible": false,
+    "analysis": {
+      "user_act": "share",
+      "semantic_target": "我今天很难过",
+      "requires_direct_answer": false,
+      "inherited_from_previous": false,
+      "repetition_count": 0,
+      "extracted_user_name": null
+    },
+    "frame": {
+      "user_acts": [
+        "share"
+      ],
+      "literal_target": "我今天很难过",
+      "topic_entities": [],
+      "discourse_relation": "shift",
+      "temporal_refs": [],
+      "unresolved_refs": [],
+      "completeness": 1.0,
+      "likely_follow_up": 0.15,
+      "memory_query_hints": [],
+      "must_answer": false
+    },
+    "decision": {
+      "action": "respond_now",
+      "floor_action": "take",
+      "move": "acknowledge",
+      "obligation_ids": [
+        "70b16b2ebfef4bdf924ae7ae96482601"
+      ],
+      "curiosity_id": null,
+      "listening_mode": null,
+      "reason_codes": [
+        "required:opening_return"
+      ],
+      "motive": "当前输入产生了必须履行的回应义务",
+      "recheck_policy": null
+    }
+  },
+  {
+    "text": "我今天很难过",
+    "visible": true,
+    "analysis": {
+      "user_act": "share",
+      "semantic_target": "我今天很难过",
+      "requires_direct_answer": false,
+      "inherited_from_previous": false,
+      "repetition_count": 0,
+      "extracted_user_name": null
+    },
+    "frame": {
+      "user_acts": [
+        "share"
+      ],
+      "literal_target": "我今天很难过",
+      "topic_entities": [],
+      "discourse_relation": "shift",
+      "temporal_refs": [],
+      "unresolved_refs": [],
+      "completeness": 1.0,
+      "likely_follow_up": 0.15,
+      "memory_query_hints": [],
+      "must_answer": false
+    },
+    "decision": {
+      "action": "respond_now",
+      "floor_action": "take",
+      "move": "attitude",
+      "obligation_ids": [],
+      "curiosity_id": null,
+      "listening_mode": null,
+      "reason_codes": [
+        "optional:character_stance"
+      ],
+      "motive": "输入已经形成可回应的完整表达",
+      "recheck_policy": null
+    }
+  },
+  {
+    "text": "你刚才说错了",
+    "visible": false,
+    "analysis": {
+      "user_act": "share",
+      "semantic_target": "你刚才说错了",
+      "requires_direct_answer": false,
+      "inherited_from_previous": false,
+      "repetition_count": 0,
+      "extracted_user_name": null
+    },
+    "frame": {
+      "user_acts": [
+        "share"
+      ],
+      "literal_target": "你刚才说错了",
+      "topic_entities": [],
+      "discourse_relation": "shift",
+      "temporal_refs": [],
+      "unresolved_refs": [],
+      "completeness": 1.0,
+      "likely_follow_up": 0.15,
+      "memory_query_hints": [],
+      "must_answer": false
+    },
+    "decision": {
+      "action": "respond_now",
+      "floor_action": "take",
+      "move": "acknowledge",
+      "obligation_ids": [
+        "b21e78ed53c140cf843f7e6d64c7f560"
+      ],
+      "curiosity_id": null,
+      "listening_mode": null,
+      "reason_codes": [
+        "required:opening_return"
+      ],
+      "motive": "当前输入产生了必须履行的回应义务",
+      "recheck_policy": null
+    }
+  },
+  {
+    "text": "你刚才说错了",
+    "visible": true,
+    "analysis": {
+      "user_act": "share",
+      "semantic_target": "你刚才说错了",
+      "requires_direct_answer": false,
+      "inherited_from_previous": false,
+      "repetition_count": 0,
+      "extracted_user_name": null
+    },
+    "frame": {
+      "user_acts": [
+        "share"
+      ],
+      "literal_target": "你刚才说错了",
+      "topic_entities": [],
+      "discourse_relation": "shift",
+      "temporal_refs": [],
+      "unresolved_refs": [],
+      "completeness": 1.0,
+      "likely_follow_up": 0.15,
+      "memory_query_hints": [],
+      "must_answer": false
+    },
+    "decision": {
+      "action": "respond_now",
+      "floor_action": "take",
+      "move": "attitude",
+      "obligation_ids": [],
+      "curiosity_id": null,
+      "listening_mode": null,
+      "reason_codes": [
+        "optional:character_stance"
+      ],
+      "motive": "输入已经形成可回应的完整表达",
+      "recheck_policy": null
+    }
+  },
+  {
+    "text": "我想靠一下你的肩膀",
+    "visible": false,
+    "analysis": {
+      "user_act": "share",
+      "semantic_target": "我想靠一下你的肩膀",
+      "requires_direct_answer": false,
+      "inherited_from_previous": false,
+      "repetition_count": 0,
+      "extracted_user_name": null
+    },
+    "frame": {
+      "user_acts": [
+        "share"
+      ],
+      "literal_target": "我想靠一下你的肩膀",
+      "topic_entities": [],
+      "discourse_relation": "shift",
+      "temporal_refs": [],
+      "unresolved_refs": [],
+      "completeness": 1.0,
+      "likely_follow_up": 0.15,
+      "memory_query_hints": [],
+      "must_answer": false
+    },
+    "decision": {
+      "action": "respond_now",
+      "floor_action": "take",
+      "move": "acknowledge",
+      "obligation_ids": [
+        "29beab2b12014c74aef66c9c2444db30"
+      ],
+      "curiosity_id": null,
+      "listening_mode": null,
+      "reason_codes": [
+        "required:opening_return"
+      ],
+      "motive": "当前输入产生了必须履行的回应义务",
+      "recheck_policy": null
+    }
+  },
+  {
+    "text": "我想靠一下你的肩膀",
+    "visible": true,
+    "analysis": {
+      "user_act": "share",
+      "semantic_target": "我想靠一下你的肩膀",
+      "requires_direct_answer": false,
+      "inherited_from_previous": false,
+      "repetition_count": 0,
+      "extracted_user_name": null
+    },
+    "frame": {
+      "user_acts": [
+        "share"
+      ],
+      "literal_target": "我想靠一下你的肩膀",
+      "topic_entities": [],
+      "discourse_relation": "shift",
+      "temporal_refs": [],
+      "unresolved_refs": [],
+      "completeness": 1.0,
+      "likely_follow_up": 0.15,
+      "memory_query_hints": [],
+      "must_answer": false
+    },
+    "decision": {
+      "action": "respond_now",
+      "floor_action": "take",
+      "move": "attitude",
+      "obligation_ids": [],
+      "curiosity_id": null,
+      "listening_mode": null,
+      "reason_codes": [
+        "optional:character_stance"
+      ],
+      "motive": "输入已经形成可回应的完整表达",
+      "recheck_policy": null
+    }
+  }
+]

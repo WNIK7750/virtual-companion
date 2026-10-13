@@ -1,0 +1,20 @@
+{
+  "name": "virtual-companion-desktop",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test --test-concurrency=1 test/*.test.mjs",
+    "lint": "node scripts/check-syntax.mjs",
+    "build": "node scripts/build.mjs",
+    "start": "electron .",
+    "start:fake": "node scripts/start-fake.mjs",
+    "e2e": "node scripts/e2e.mjs"
+  },
+  "main": "src/main.mjs",
+  "devDependencies": {
+    "electron": "44.2.0",
+    "playwright": "1.63.0"
+  },
+  "version": "0.1.0-dev.0",
+  "license": "MIT"
+}

@@ -1,0 +1,48 @@
+{
+  "profile_id": "public-source-preview-v1",
+  "server": ".local/models/llama-server.exe",
+  "model": ".local/models/model.gguf",
+  "cuda_bin": "",
+  "artifacts": [
+    {
+      "path": ".local/models/llama-server.exe",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "path": ".local/models/model.gguf",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  ],
+  "prompt_path": "configs/text-baseline-prompt.txt",
+  "prompt_sha256": "c7f2de7359f479a22d538089264daae25a485910ebbe76cb2f2f262672e7f80f",
+  "sampling": {
+    "temperature": 0.2,
+    "top_p": 0.8,
+    "max_tokens": 192,
+    "seed": 20260907
+  },
+  "server_arguments": [
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "18083",
+    "--ctx-size",
+    "8192",
+    "--gpu-layers",
+    "99",
+    "--device",
+    "CUDA0",
+    "--parallel",
+    "2",
+    "--offline",
+    "--no-ui",
+    "--reasoning",
+    "off",
+    "--reasoning-format",
+    "deepseek",
+    "--no-cors-credentials",
+    "--cors-origins",
+    "http://127.0.0.1:18083",
+    "--no-warmup"
+  ]
+}

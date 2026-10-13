@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Virtual Companion R1 Screen Fixture</title>
+    <style>
+      * { box-sizing: border-box; }
+      html, body { margin: 0; width: 100%; min-height: 100%; background: #16181d; }
+      body { font-family: "Microsoft YaHei", "Noto Sans CJK SC", sans-serif; }
+      #scene {
+        position: relative;
+        overflow: hidden;
+        width: 1280px;
+        height: 720px;
+        padding: 32px;
+        color: #172033;
+        background: linear-gradient(135deg, #f7f4ec 0%, #dfe9f4 100%);
+      }
+      header { display: flex; align-items: end; justify-content: space-between; }
+      h1 { margin: 0; font-size: 31px; letter-spacing: -0.5px; }
+      .version { font: 600 14px/1.2 Consolas, monospace; color: #43516a; }
+      .grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 18px; margin-top: 20px; }
+      .card {
+        border: 1px solid rgba(32, 45, 66, 0.18);
+        border-radius: 14px;
+        padding: 18px;
+        background: rgba(255, 255, 255, 0.88);
+        box-shadow: 0 8px 24px rgba(22, 32, 49, 0.08);
+      }
+      .primary { height: 238px; }
+      .primary p { margin: 14px 0; font-size: 25px; }
+      .mixed { font: 700 22px/1.4 Consolas, "Microsoft YaHei", sans-serif; }
+      table { width: 100%; border-collapse: collapse; font-size: 16px; }
+      th, td { padding: 9px 11px; border-bottom: 1px solid #d4dbe5; text-align: left; }
+      th { color: #50617b; font-weight: 600; }
+      .status { color: #087f5b; font-weight: 700; }
+      .lower { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; margin-top: 18px; }
+      .lower .card { height: 250px; }
+      .swatches { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+      .swatch { height: 48px; border-radius: 8px; border: 1px solid rgba(0, 0, 0, 0.2); }
+      .tiny { margin-top: 16px; font: 400 7px/1.3 Arial, sans-serif; color: #28364e; }
+      .scale-rule { display: flex; align-items: end; gap: 7px; height: 92px; }
+      .scale-rule span { display: block; width: 20px; background: #315a91; }
+      .scale-rule span:nth-child(1) { height: 20%; }
+      .scale-rule span:nth-child(2) { height: 40%; }
+      .scale-rule span:nth-child(3) { height: 60%; }
+      .scale-rule span:nth-child(4) { height: 80%; }
+      .scale-rule span:nth-child(5) { height: 100%; }
+      .privacy {
+        margin-top: 18px;
+        padding: 12px;
+        border: 2px dashed #c92a2a;
+        border-radius: 8px;
+        color: #9c1c1c;
+        background: #fff5f5;
+        font-size: 16px;
+      }
+      .occluder {
+        position: absolute;
+        left: 518px;
+        top: 261px;
+        width: 252px;
+        height: 116px;
+        display: grid;
+        place-items: center;
+        border: 4px solid #4c2a85;
+        border-radius: 12px;
+        color: white;
+        background: repeating-linear-gradient(45deg, #6941c6, #6941c6 12px, #7f56d9 12px, #7f56d9 24px);
+        font: 800 18px/1 Consolas, monospace;
+        letter-spacing: 1px;
+      }
+    </style>
+  </head>
+  <body>
+    <main id="scene" data-scene-version="1">
+      <header>
+        <h1>离线屏幕理解测试窗口</h1>
+        <div class="version">VC-SCREEN-FIXTURE / v1 / 1280×720</div>
+      </header>
+
+      <section class="grid">
+        <article class="card primary" data-case="large-mixed-text">
+          <strong>对话转录样例</strong>
+          <p>普通话识别：今天是 2026 年 9 月 2 日。</p>
+          <p class="mixed">Order VC-2048 / ￥39.90 / ETA 18:45</p>
+          <p>中英混排：Live2D 表情 cue 已排队，但尚未播放。</p>
+        </article>
+
+        <article class="card" data-case="structured-table">
+          <table>
+            <thead><tr><th>模块</th><th>状态</th><th>TTL</th></tr></thead>
+            <tbody>
+              <tr><td>ASR</td><td class="status">READY</td><td>5000 ms</td></tr>
+              <tr><td>Vision</td><td>STALE</td><td>0 ms</td></tr>
+              <tr><td>Avatar</td><td>TEXT ONLY</td><td>—</td></tr>
+            </tbody>
+          </table>
+        </article>
+      </section>
+
+      <section class="lower">
+        <article class="card" data-case="color-patches">
+          <strong>sRGB 色块</strong>
+          <div class="swatches">
+            <div class="swatch" style="background:#ff0000"></div>
+            <div class="swatch" style="background:#00ff00"></div>
+            <div class="swatch" style="background:#0000ff"></div>
+            <div class="swatch" style="background:#ffffff"></div>
+            <div class="swatch" style="background:#808080"></div>
+            <div class="swatch" style="background:#000000"></div>
+          </div>
+          <div class="tiny" data-case="small-text">small text 7px: do not overclaim OCR</div>
+        </article>
+
+        <article class="card" data-case="scale-markers">
+          <strong>缩放与裁剪标尺</strong>
+          <div class="scale-rule"><span></span><span></span><span></span><span></span><span></span></div>
+          <p>边界坐标：x=0…1279, y=0…719</p>
+        </article>
+
+        <article class="card" data-case="privacy-sentinel">
+          <strong>观察生命周期</strong>
+          <p>source=fixture-window<br>confidence=measured<br>ttl_ms=5000</p>
+          <div class="privacy" data-privacy="do-not-persist">PRIVACY-SENTINEL-9F2A：原始帧禁止写入长期记忆</div>
+        </article>
+      </section>
+
+      <div class="occluder" data-case="occluder">EXPECTED OCCLUSION</div>
+    </main>
+  </body>
+</html>

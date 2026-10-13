@@ -1,0 +1,19 @@
+{
+  "version": "harness-carriers.synthetic.v1",
+  "source_commit": "1ce59f20989f106f0f4bb3920db26858bdef7f30",
+  "binding": {"companion":"synthetic","session":"s","input":"i","attempt":"a","owner":"o","epoch":1},
+  "messages": [{"role":"user","content":"使用合成证据准备回复"}],
+  "tools": [{"name":"lookup","parameters":{"type":"object","properties":{"query":{"type":"string"}}},"effect":"read_only"}],
+  "cases": [
+    {"id":"evidence_then_candidate","responses":[
+      {"text":"checking","tool_calls":[{"id":"call-1","name":"lookup","arguments":"{\"query\":\"fixture\"}"}],"finish_reason":"tool_calls"},
+      {"text":"这是一条有证据的候选回复。","tool_calls":[],"finish_reason":"stop"}
+    ],"dispatch":{"outcome":"success","content":"synthetic evidence"},"expected":{"status":"candidate","text":"这是一条有证据的候选回复。","model_calls":2,"dispatches":1}},
+    {"id":"cancel_after_model","responses":[
+      {"text":"不得释放此候选","tool_calls":[],"finish_reason":"stop"}
+    ],"cancel_after_model":true,"expected":{"status":"interrupted","text":"","model_calls":1,"dispatches":0}},
+    {"id":"checkpoint_failure","responses":[
+      {"text":"不得发送此模型请求","tool_calls":[],"finish_reason":"stop"}
+    ],"checkpoint_failure":true,"expected":{"status":"interrupted","text":"","model_calls":0,"dispatches":0}}
+  ]
+}

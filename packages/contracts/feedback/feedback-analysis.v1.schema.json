@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://virtual-companion.local/contracts/feedback-analysis.v1.schema.json",
+  "title": "FeedbackAnalysis v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "analysis_id",
+    "input_export_id",
+    "input_export_sha256",
+    "analysis_model",
+    "analysis_prompt_sha256",
+    "generated_at",
+    "findings"
+  ],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "analysis_id": { "type": "string", "minLength": 1 },
+    "input_export_id": { "type": "string", "minLength": 1 },
+    "input_export_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "analysis_model": { "type": "string", "minLength": 1 },
+    "analysis_prompt_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "findings": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "observation",
+          "likely_layer",
+          "hypothesis",
+          "confidence",
+          "evidence_feedback_ids",
+          "alternative_explanations",
+          "recommended_actions",
+          "new_eval_cases",
+          "needs_human_confirmation"
+        ],
+        "properties": {
+          "observation": { "type": "string", "minLength": 1 },
+          "likely_layer": { "enum": ["prompt", "state", "memory", "sampling", "ui", "model_limit", "unknown"] },
+          "hypothesis": { "type": "string", "minLength": 1 },
+          "confidence": { "enum": ["low", "medium", "high"] },
+          "evidence_feedback_ids": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
+          "alternative_explanations": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+          "recommended_actions": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+          "new_eval_cases": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+          "needs_human_confirmation": { "const": true }
+        }
+      }
+    }
+  }
+}

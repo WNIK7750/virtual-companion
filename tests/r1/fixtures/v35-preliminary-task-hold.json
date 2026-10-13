@@ -1,0 +1,112 @@
+{
+  "opinion": {
+    "audit_version": "candidate-unit-verdict.v8",
+    "decision": "hold",
+    "checks": [
+      "pass",
+      "pass",
+      "pass",
+      "uncertain"
+    ],
+    "failure": {
+      "scope": "task",
+      "segment_id": null,
+      "basis": "final=false，仅见前缀“好，提醒关了。”，尚未生成对“为什么没进去过也会舍不得”的实质回答，无法核完整任务交付。"
+    },
+    "units": [
+      {
+        "segment_id": "segment-1-db68bc74dbbad29c",
+        "meaning": "助手确认已关闭提醒。",
+        "personal_support": "none",
+        "personal_source_ids": [],
+        "fiction_support": "none",
+        "fiction_source_ids": [],
+        "use": "承接用户“先把提醒关了”的请求并确认操作",
+        "response_fit": "fits"
+      }
+    ]
+  },
+  "source_sha256": "67182693ad1ab901909c0f1def2d0be118e837f65b1b74e210c9cf0175182199",
+  "boundary": "Recorded synthetic development conversation; captured model opinion is not semantic proof.",
+  "source": "prd03-live-continuity-20261010/candidate-r1/model-events.jsonl",
+  "envelope": {
+    "payload": {
+      "conversation_frame": {
+        "version": "conversation-use-frame.v1",
+        "current_speaker": "user",
+        "current_source_id": "current:9eedfb82-91e5-4a61-a3f5-0aa5aa05c7d0",
+        "candidate_speaker": "assistant",
+        "source_roles": [
+          {
+            "id": "current:9eedfb82-91e5-4a61-a3f5-0aa5aa05c7d0",
+            "role": "user"
+          },
+          {
+            "id": "history:ff35122c-e359-4db0-b1ab-17abaa98693c",
+            "role": "user"
+          },
+          {
+            "id": "history:aada0f42-0f3b-43a2-a8b0-8e4b430a934e",
+            "role": "user"
+          }
+        ]
+      },
+      "version": "stream-unit-review.v7",
+      "audit_version": "candidate-unit-verdict.v8",
+      "basis": {
+        "companion_id": "0bb0117c-b931-4629-af02-3cdae94d1092",
+        "session_id": "d50b5517-833c-4b99-baec-576a21f6a76e",
+        "input_id": "9eedfb82-91e5-4a61-a3f5-0aa5aa05c7d0",
+        "attempt_id": "5cf1319f-0002-40cd-beba-be990de24154",
+        "state_version": 3
+      },
+      "user_text": "先把提醒关了，我要离开屏幕一会儿。你接着说说，为什么没进去过也会舍不得？",
+      "context": "{\"context_time\":{\"clock\":\"utc_epoch_microseconds\",\"observed_at_us\":1791640131542914,\"observed_at_utc\":\"2026-10-10T13:48:51.542914Z\",\"protocol\":\"host-context-time.v1\",\"selection\":\"effective_at_observation\",\"source\":\"admission.evidence_clock\"},\"exchanges\":[],\"history\":[{\"id\":\"ff35122c-e359-4db0-b1ab-17abaa98693c\",\"role\":\"user\",\"text\":\"今天路过旧书店，门口贴着月底关门。我以前没进去过，却有点舍不得。\"},{\"id\":\"segment-b3453339d5e2fbd6a02f918464b8b0ddf27cf2a010d1ca19b50c20d3958b0bf8\",\"role\":\"assistant\",\"text\":\"有点舍不得，挺能理解的——不是舍不得那家店本身，而是舍不得一个“以后总有机会进去看看”的可能性，现在被一张告示提前收走了。\"},{\"id\":\"segment-2bfddfb58fde45936ee83d4811c9a1e9e4ebce1735657bf09002f6355e504379\",\"role\":\"assistant\",\"text\":\"\\n\\n既然月底才关，你要是真想进去看看，现在去还来得及。哪怕只是随便翻翻，也算给这个念头一个交代。\"},{\"id\":\"aada0f42-0f3b-43a2-a8b0-8e4b430a934e\",\"role\":\"user\",\"text\":\"补充一下，我不是想找办法留住它，就是觉得街上少了个熟面孔。\"},{\"id\":\"segment-e7470ee5256aabfab6cf8b71979372fbd3cd014d186be9d12cca9b180d4a965f\",\"role\":\"assistant\",\"text\":\"嗯，我明白了——不是要挽留什么，是那种“它一直在那儿”的熟悉感要没了。\"},{\"id\":\"segment-6f783cbbe4b74ed37dbae2452f36453db7af0f15aa89772b74b9847d658dd3ad\",\"role\":\"assistant\",\"text\":\"\\n\\n熟面孔这个词挺准的。它不需要你进去过、不需要跟你有过什么交集，光是每天路过时它在，就成了一种默认的背景。现在这个背景要被抽掉一块，舍不得的是那个位置空出来的感觉。\"}],\"memories\":[],\"memory_access\":\"not_accessed\",\"memory_status\":\"pending_source\",\"source_processing\":{\"error\":null,\"protocol\":\"current-source-processing.v1\",\"receipt_sha256\":null,\"source_id\":\"9eedfb82-91e5-4a61-a3f5-0aa5aa05c7d0\",\"source_sha256\":\"4d97a6348ecaa699397170a03eba1cee8152809fe3fa9a22c4546846bb898330\",\"status\":\"queued\"}}",
+      "personal_sources": [
+        {
+          "id": "current:9eedfb82-91e5-4a61-a3f5-0aa5aa05c7d0",
+          "kind": "current",
+          "owner": "0bb0117c-b931-4629-af02-3cdae94d1092",
+          "source_id": "9eedfb82-91e5-4a61-a3f5-0aa5aa05c7d0",
+          "role": "user",
+          "revision": 1,
+          "text": "先把提醒关了，我要离开屏幕一会儿。你接着说说，为什么没进去过也会舍不得？"
+        },
+        {
+          "id": "history:ff35122c-e359-4db0-b1ab-17abaa98693c",
+          "kind": "history",
+          "owner": "0bb0117c-b931-4629-af02-3cdae94d1092",
+          "source_id": "ff35122c-e359-4db0-b1ab-17abaa98693c",
+          "role": "user",
+          "revision": 1,
+          "text": "今天路过旧书店，门口贴着月底关门。我以前没进去过，却有点舍不得。"
+        },
+        {
+          "id": "history:aada0f42-0f3b-43a2-a8b0-8e4b430a934e",
+          "kind": "history",
+          "owner": "0bb0117c-b931-4629-af02-3cdae94d1092",
+          "source_id": "aada0f42-0f3b-43a2-a8b0-8e4b430a934e",
+          "role": "user",
+          "revision": 1,
+          "text": "补充一下，我不是想找办法留住它，就是觉得街上少了个熟面孔。"
+        }
+      ],
+      "forbidden_characters": "",
+      "observed_text": "好，提醒关了。",
+      "candidate_prefix": "好，提醒关了。",
+      "review_segments": [
+        {
+          "segment_id": "segment-1-db68bc74dbbad29c",
+          "text": "好，提醒关了。"
+        }
+      ],
+      "displayed_prefix": "",
+      "candidate_sha256": "9658a9f599575a813e703cbd2c81d7a2d74e3a46bef9b8cbcda5fcdb6ac96d1d",
+      "final": false,
+      "constraints": [],
+      "unparsed_constraints": []
+    },
+    "sha256": "245ab6ed4b7fe209baccbc09895a412508994ac9acd87e6eb4a5a44642cde84c"
+  },
+  "call_id": "b3791987-62f5-427d-b6b5-6c8b577ff7a1"
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "default_provider": "deepseek-api",
+  "local": {
+    "provider_id": "local",
+    "label": "本地模型",
+    "model_label": "固定 Qwen3-4B 基线",
+    "kind": "local",
+    "status": "available",
+    "capabilities": ["流式回复", "取消", "离线运行", "本地记忆上下文"]
+  },
+  "api": {
+    "provider_id": "deepseek-api",
+    "label": "DeepSeek Flash",
+    "model_label": "DeepSeek V4.1 Flash",
+    "kind": "api",
+    "route_ref": "provider.json in selected data root",
+    "credential_store": "Windows DPAPI 引用",
+    "data_scope": "默认使用所选数据目录的受管 DeepSeek Flash 配置；前台输入、历史、有效记忆、审核和后台整理共用该路由；缺配置不发送、不自动换路",
+    "capabilities": ["流式文本", "结构化 JSON（合同已验证）"],
+    "missing": ["外置受管配置、计数器制品与继承预算；启动时验证"]
+  }
+}

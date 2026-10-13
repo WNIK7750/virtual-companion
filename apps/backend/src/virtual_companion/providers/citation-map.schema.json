@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:virtual-companion:native-citation-map:recording-v1",
+  "title": "Actual native candidate normalized citation entry; raw provider citation remains opaque",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["text_block_index", "citation_index", "raw", "url", "output_range", "page_range", "source_id", "source_content_sha256", "unresolved_reason", "captured_excerpt_range"],
+  "properties": {
+    "text_block_index": {"type": "integer", "minimum": 0},
+    "citation_index": {"type": "integer", "minimum": 0},
+    "raw": {"type": "object", "description": "Unmodified provider citation. Opaque native ids such as encrypted_index are locators only, not source bindings."},
+    "url": {"type": ["string", "null"], "pattern": "^https://"},
+    "output_range": {"type": "null", "description": "No exact answer offsets are supplied by this adapter."},
+    "page_range": {"type": "null", "description": "No page-body offsets are available from native citation text."},
+    "source_id": {"type": ["string", "null"], "pattern": "^native-[a-f0-9]{24}$"},
+    "source_content_sha256": {"type": ["string", "null"], "pattern": "^[a-f0-9]{64}$"},
+    "unresolved_reason": {"enum": [null, "native_source_not_returned", "native_excerpt_not_captured"]},
+    "captured_excerpt_range": {
+      "oneOf": [
+        {"type": "null"},
+        {"type": "object", "additionalProperties": false,
+         "required": ["unit", "start", "end"],
+         "properties": {"unit": {"const": "unicode_codepoints"}, "start": {"const": 0}, "end": {"type": "integer", "minimum": 1}}}
+      ]
+    }
+  },
+  "allOf": [
+    {"if": {"properties": {"source_id": {"type": "null"}}},
+     "then": {"properties": {"source_content_sha256": {"type": "null"}, "captured_excerpt_range": {"type": "null"}, "unresolved_reason": {"type": "string"}}},
+     "else": {"properties": {"url": {"type": "string"}, "source_content_sha256": {"type": "string"}, "captured_excerpt_range": {"type": "object"}, "unresolved_reason": {"type": "null"}}}}
+  ],
+  "$comment": "Host semantic checks must bind source_id to exactly one reference; match URL and content_sha256; verify the codepoint range and raw.cited_text against that reference. JSON Schema alone cannot perform these cross-record checks."
+}

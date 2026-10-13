@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "fixture_id": "screen-scene-v1",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  },
+  "rendering": {
+    "network_allowed": false,
+    "preferred_fonts": [
+      "Microsoft YaHei",
+      "Noto Sans CJK SC",
+      "sans-serif"
+    ],
+    "font_fallback_may_change_pixels": true,
+    "pixel_hash_is_not_an_ocr_quality_metric": true
+  },
+  "expected_text": {
+    "large_zh": "普通话识别：今天是 2026 年 9 月 2 日。",
+    "mixed": "Order VC-2048 / ￥39.90 / ETA 18:45",
+    "small_text": "small text 7px: do not overclaim OCR",
+    "occluder": "EXPECTED OCCLUSION"
+  },
+  "observation_contract": {
+    "required": [
+      "source",
+      "confidence",
+      "captured_at",
+      "ttl_ms"
+    ],
+    "ttl_ms": 5000
+  },
+  "privacy_sentinel": {
+    "value": "PRIVACY-SENTINEL-9F2A",
+    "persist_allowed": false,
+    "raw_frame_persist_allowed": false
+  },
+  "test_states": [
+    "normal",
+    "occluded",
+    "scaled-125-percent",
+    "scaled-150-percent",
+    "partially-offscreen",
+    "minimized",
+    "closed",
+    "permission-denied",
+    "ttl-expired"
+  ],
+  "artifacts": {
+    "html_sha256": "7bbba44c5bd368b3b1a7c709192fbd7055fdd6659c4c80b9b7dc5588fc2bd559"
+  }
+}

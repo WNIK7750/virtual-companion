@@ -1,0 +1,26 @@
+name: Bug 反馈
+description: 报告可以复现的功能问题
+title: '[Bug] '
+body:
+  - type: markdown
+    attributes:
+      value: 请勿附带密钥、真实会话数据库或未经脱敏的个人资料。安全漏洞请使用私密漏洞报告。
+  - type: textarea
+    id: behavior
+    attributes:
+      label: 预期与实际行为
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: 最小复现步骤
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: 运行环境
+      description: 系统、Python / Node.js 版本与项目提交号；日志请先脱敏。
+    validations:
+      required: true

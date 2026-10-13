@@ -1,0 +1,223 @@
+{
+  "version": "rf3-unit-semantics.v1",
+  "frozen": "2026-09-20",
+  "purpose": "Frozen heterogeneous prefix candidates for RF3 self-containment: what the host can withhold deterministically versus what still needs an explicit model opinion. Presence in this set is not approval and no entry is publishable without a trusted review result.",
+  "fields": {
+    "utterance": "observed prefix offered to the reviewer, including the trailing paragraph boundary",
+    "shown": "already displayed prefix",
+    "host_gate": "withhold = host-deterministic gate must refuse the candidate; defer = host cannot decide and must obtain a model opinion",
+    "gold_presentable": "whether the candidate may be presented standalone; only a real model opinion can establish this for defer entries"
+  },
+  "cases": [
+    {
+      "id": "pos-greeting",
+      "dependency": "none",
+      "user_request": "陪我聊两句。",
+      "shown": "",
+      "utterance": "你好，今天过得怎么样？\n\n",
+      "host_gate": "defer",
+      "gold_presentable": true
+    },
+    {
+      "id": "pos-acknowledgement",
+      "dependency": "none",
+      "user_request": "我今天把报告写完了。",
+      "shown": "",
+      "utterance": "听上去很顺利。\n\n",
+      "host_gate": "defer",
+      "gold_presentable": true
+    },
+    {
+      "id": "pos-open-question",
+      "dependency": "none",
+      "user_request": "随便聊点什么都行。",
+      "shown": "",
+      "utterance": "你最近有没有尝试什么新事物？\n\n",
+      "host_gate": "defer",
+      "gold_presentable": true
+    },
+    {
+      "id": "pos-closed-quote",
+      "dependency": "none",
+      "user_request": "他今天说什么了？",
+      "shown": "",
+      "utterance": "他说：“今天很高兴。”\n\n",
+      "host_gate": "defer",
+      "gold_presentable": true
+    },
+    {
+      "id": "pos-closed-conditional",
+      "dependency": "none",
+      "user_request": "你想什么时候说都行。",
+      "shown": "",
+      "utterance": "如果你愿意，我可以现在就说。\n\n",
+      "host_gate": "defer",
+      "gold_presentable": true
+    },
+    {
+      "id": "pos-closed-negation",
+      "dependency": "none",
+      "user_request": "你觉得这个方法行吗？",
+      "shown": "",
+      "utterance": "我并不讨厌这个方法。\n\n",
+      "host_gate": "defer",
+      "gold_presentable": true
+    },
+    {
+      "id": "neg-dangling-comma",
+      "dependency": "conditional",
+      "user_request": "你现在方便说话吗？",
+      "shown": "",
+      "utterance": "如果你愿意，\n\n",
+      "host_gate": "withhold",
+      "gold_presentable": false
+    },
+    {
+      "id": "neg-dangling-colon",
+      "dependency": "enumeration",
+      "user_request": "说一下你要问什么。",
+      "shown": "",
+      "utterance": "条件如下：\n\n",
+      "host_gate": "withhold",
+      "gold_presentable": false
+    },
+    {
+      "id": "neg-open-quote",
+      "dependency": "quoted_speech",
+      "user_request": "他今天说什么了？",
+      "shown": "",
+      "utterance": "他说：“今天\n\n",
+      "host_gate": "withhold",
+      "gold_presentable": false
+    },
+    {
+      "id": "neg-open-group",
+      "dependency": "quoted_speech",
+      "user_request": "这件事可能吗？",
+      "shown": "",
+      "utterance": "这（可能\n\n",
+      "host_gate": "withhold",
+      "gold_presentable": false
+    },
+    {
+      "id": "neg-conditional-without-punctuation",
+      "dependency": "conditional",
+      "user_request": "你现在方便说话吗？",
+      "shown": "",
+      "utterance": "如果你愿意\n\n",
+      "host_gate": "defer",
+      "gold_presentable": false
+    },
+    {
+      "id": "neg-dangling-connective",
+      "dependency": "negation_scope",
+      "user_request": "你觉得这个方法行吗？",
+      "shown": "",
+      "utterance": "我并不讨厌这个方法，不过\n\n",
+      "host_gate": "defer",
+      "gold_presentable": false
+    },
+    {
+      "id": "neg-unresolved-reference",
+      "dependency": "reference",
+      "user_request": "给我推荐一本书吧。",
+      "shown": "",
+      "utterance": "它其实很有意思。\n\n",
+      "host_gate": "defer",
+      "gold_presentable": false
+    },
+    {
+      "id": "neg-enumeration-continuation",
+      "dependency": "enumeration",
+      "user_request": "说说你的建议。",
+      "shown": "",
+      "utterance": "我先说第一点。\n\n",
+      "host_gate": "defer",
+      "gold_presentable": false
+    },
+    {
+      "id": "neg-contradicts-shown",
+      "dependency": "contradiction",
+      "user_request": "你平时喝茶吗？",
+      "shown": "我不喜欢喝茶。",
+      "utterance": "我不喜欢喝茶。\n\n其实我很喜欢茶。\n\n",
+      "host_gate": "defer",
+      "gold_presentable": false
+    },
+    {
+      "id": "neg-contradicts-user-limit",
+      "dependency": "constraint",
+      "user_request": "只回答一个字，不要说别的。",
+      "shown": "",
+      "utterance": "好，我明白你的意思了，我们可以慢慢聊。\n\n",
+      "host_gate": "withhold",
+      "host_gate_reason": "host-verifiable length constraint (exact 1 character) recognized from user text; the model is not consulted",
+      "gold_presentable": false
+    },
+    {
+      "id": "neg-constraint-maximum-exceeded",
+      "dependency": "constraint",
+      "user_request": "最多三个字。",
+      "shown": "",
+      "utterance": "好的，我明白。\n\n",
+      "host_gate": "withhold",
+      "host_gate_reason": "host-verifiable length constraint (max 3 characters) recognized from user text",
+      "gold_presentable": false
+    },
+    {
+      "id": "neg-cross-segment-preference-conflict",
+      "dependency": "contradiction",
+      "user_request": "我不喜欢吵闹的音乐，平时都听安静的。",
+      "shown": "",
+      "utterance": "我很喜欢吵闹的音乐，越吵越好。\n\n",
+      "host_gate": "defer",
+      "gold_presentable": false
+    },
+    {
+      "id": "neg-misquoted-user-source",
+      "dependency": "reference",
+      "user_request": "帮我看这句话：“明天可能下雨。”",
+      "shown": "",
+      "utterance": "你刚才说的是“明天一定下雨”。\n\n",
+      "host_gate": "defer",
+      "gold_presentable": false
+    },
+    {
+      "id": "neg-unclosed-contrast",
+      "dependency": "negation_scope",
+      "user_request": "这个办法你觉得行吗？",
+      "shown": "",
+      "utterance": "我并不觉得这个办法不好，只是\n\n",
+      "host_gate": "defer",
+      "gold_presentable": false
+    },
+    {
+      "id": "neg-partial-requested-count",
+      "dependency": "enumeration",
+      "user_request": "给我三个建议。",
+      "shown": "",
+      "utterance": "首先注意休息。\n\n",
+      "host_gate": "defer",
+      "gold_presentable": false
+    },
+    {
+      "id": "neg-unparsed-format-constraint",
+      "dependency": "constraint",
+      "user_request": "只回答一个数字就行。",
+      "shown": "",
+      "utterance": "大概是三四个吧。\n\n",
+      "host_gate": "withhold",
+      "host_gate_reason": "constraint-like phrase without a parse: prefixes are withheld conservatively",
+      "gold_presentable": false
+    },
+    {
+      "id": "pos-cross-segment-consistent",
+      "dependency": "none",
+      "user_request": "我今天很累。",
+      "shown": "",
+      "utterance": "那就早点休息，别硬撑。\n\n",
+      "host_gate": "defer",
+      "gold_presentable": true
+    }
+  ]
+}

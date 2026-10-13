@@ -1,0 +1,16 @@
+<section aria-labelledby="feedback-title" data-feedback-panel>
+  <h2 id="feedback-title">这条回复怎么样？</h2>
+  <form data-feedback-form>
+    <fieldset>
+      <legend>快速反馈（可选）</legend>
+      <label><input type="checkbox" name="quick_tags" value="too_mechanical"> 太机械</label>
+      <label><input type="checkbox" name="quick_tags" value="too_verbose"> 太啰嗦</label>
+      <label><input type="checkbox" name="quick_tags" value="missed_emotion"> 没接住情绪</label>
+    </fieldset>
+    <label for="freeform-reaction">其他（写下你的真实感受）</label>
+    <textarea id="freeform-reaction" name="freeform_reaction" maxlength="2000" rows="4"></textarea>
+    <div role="status" aria-live="polite" data-feedback-status></div>
+    <button type="submit">保存反馈</button>
+    <button type="button" data-feedback-cancel>取消</button>
+  </form>
+</section>

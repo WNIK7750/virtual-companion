@@ -1,0 +1,51 @@
+# Python / tooling
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.pytest-tmp*/
+.ruff_cache/
+.mypy_cache/
+*.egg-info/
+
+# Node / generated artifacts
+node_modules/
+dist/
+build/
+coverage/
+out/
+*.tsbuildinfo
+playwright-report/
+test-results/
+
+# Private configuration, conversations, models and credentials
+.local/
+.env
+.env.*
+!.env.example
+*.local.json
+provider.json
+semantic-retrieval.json
+character.json
+data/
+models/
+recordings/
+screenshots/
+*.db
+*.db-*
+*.sqlite*
+*.gguf
+*.onnx
+*.safetensors
+*.pem
+*.key
+
+# Development machine artifacts
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.log
+tmp/
+temp/
